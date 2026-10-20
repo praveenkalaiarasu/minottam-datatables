@@ -1,0 +1,31 @@
+{
+	"name": "praveenkalaiarasu/minottam-datatables",
+	"description": "Livewire and Flux UI data tables for Laravel: typed columns, filters, sorting, pagination and saved per-user preferences.",
+	"keywords": [
+		"laravel",
+		"livewire",
+		"flux",
+		"datatable"
+	],
+	"license": "MIT",
+	"require": {
+		"php": "^8.3",
+		"illuminate/support": "^13.0",
+		"livewire/flux": "^2.20",
+		"livewire/livewire": "^4.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Minottam\\Datatables\\": "src/"
+		}
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Minottam\\Datatables\\DatatablesServiceProvider"
+			]
+		}
+	},
+	"minimum-stability": "stable",
+	"prefer-stable": true
+}
