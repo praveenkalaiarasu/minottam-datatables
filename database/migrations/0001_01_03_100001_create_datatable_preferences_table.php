@@ -11,9 +11,15 @@ return new class extends Migration
 	 */
 	public function up(): void
 	{
-		Schema::create('datatable_preferences', function (Blueprint $table) {
+		Schema::create(config('minottam-datatables.table', 'datatable_preferences'), function (Blueprint $table) {
 			$table->uuid('id')->primary();
-			$table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
+
+			if (config('minottam-datatables.user_key_type', 'uuid') === 'id') {
+				$table->foreignId('user_id')->constrained()->cascadeOnDelete();
+			} else {
+				$table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
+			}
+
 			$table->string('table_key');
 			$table->jsonb('preferences');
 			$table->timestamps();
@@ -27,6 +33,6 @@ return new class extends Migration
 	 */
 	public function down(): void
 	{
-		Schema::dropIfExists('datatable_preferences');
+		Schema::dropIfExists(config('minottam-datatables.table', 'datatable_preferences'));
 	}
 };

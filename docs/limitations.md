@@ -26,7 +26,7 @@ These were written from the code and haven't been seen working yet:
 | You see | Check |
 |---|---|
 | "Class ... not found" | Run `composer dump-autoload`, then reload. |
-| An SQL error saying `datatable_preferences` doesn't exist | Run `php artisan migrate`. See [Quick start](quick-start.md). |
+| An SQL error saying `datatable_preferences` doesn't exist | Publish the migration with `php artisan vendor:publish --tag=datatables-migrations`, then run `php artisan migrate`. See [Quick start](quick-start.md). |
 | An SQL error mentioning `updated_at` | The model's table has no `updated_at` column. |
 | "Unable to locate a class or view for component" | The tag must be `<x-datatable>`, `<x-datatable.row>` or `<x-datatable.pagination>`, and the files must be in `resources/views/components/datatable/`. |
 | An `InvalidArgumentException` naming a column | `sortable()` was given something other than `'asc'` or `'desc'`. See [Columns](columns.md). |

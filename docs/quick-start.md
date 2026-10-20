@@ -4,9 +4,10 @@ The smallest working datatable page. It is the Users page, trimmed to what you n
 
 ## Before you start
 
-Run the migration once, so the table that stores saved preferences exists:
+Publish and run the migration once, so the table that stores saved preferences exists:
 
 ```bash
+php artisan vendor:publish --tag=datatables-migrations
 php artisan migrate
 ```
 

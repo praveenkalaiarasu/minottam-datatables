@@ -11,6 +11,11 @@ class DatatablePreference extends Model
 
 	protected $fillable = ['user_id', 'table_key', 'preferences'];
 
+	public function getTable(): string
+	{
+		return config('minottam-datatables.table', 'datatable_preferences');
+	}
+
 	protected function casts(): array
 	{
 		return [
