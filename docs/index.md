@@ -29,7 +29,7 @@ This documentation describes the code as it is in the project. Where a behaviour
 | `<x-datatable.row>` | `resources/views/components/datatable/row.blade.php` | Draws one row. Used automatically, or by you when you [customize cells](custom-cells.md). |
 | `<x-datatable.pagination>` | `resources/views/components/datatable/pagination.blade.php` | The page-number buttons. Used by `<x-datatable>`. |
 | `DatatablePreference` | `src/Models/DatatablePreference.php` | The model for saved preferences. See [Saved preferences](preferences.md). |
-| The migration | `database/migrations/0001_01_03_100001_create_datatable_preferences_table.php` | Creates the `datatable_preferences` table. It must be run before any page uses `HasDatatable`. |
+| The migration | `database/migrations/0001_01_03_100001_create_datatable_preferences_table.php` | Creates the preferences table. Publish it with `php artisan vendor:publish --tag=datatables-migrations`, then run it before any page uses `HasDatatable`. |
 
 ## How they connect
 
@@ -52,7 +52,7 @@ Your page (Livewire component)
 
 ## Rules in one list
 
-- Run `php artisan migrate` before using `HasDatatable`. The trait reads and writes the `datatable_preferences` table every time a table page loads, so a page fails without it.
+- Publish the migration (`php artisan vendor:publish --tag=datatables-migrations`) and run `php artisan migrate` before using `HasDatatable`. The trait reads and writes the `datatable_preferences` table every time a table page loads, so a page fails without it.
 - One datatable per Livewire component. To show two tables on one screen, use two components. See [Limitations](limitations.md).
 - The model behind the table needs an `updated_at` column. See [Sorting](sorting.md).
 - The records must be Eloquent models.

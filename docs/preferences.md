@@ -27,7 +27,7 @@ In the database table `datatable_preferences`, one row per user per table:
 | `table_key` | Which table. See below. |
 | `preferences` | A `jsonb` value, for example `{"sort_by":"name","sort_direction":"desc","per_page":25}`. |
 
-The model is `Minottam\Datatables\Models\DatatablePreference`. The table is created by `database/migrations/0001_01_03_100001_create_datatable_preferences_table.php`.
+The model is `Minottam\Datatables\Models\DatatablePreference`. The table is created by `database/migrations/0001_01_03_100001_create_datatable_preferences_table.php`, which you publish into your app with `php artisan vendor:publish --tag=datatables-migrations`. The table name and the users key type come from `config/minottam-datatables.php`.
 
 Because the settings are stored as one JSON value, adding a new saved setting later does not need a new migration.
 
